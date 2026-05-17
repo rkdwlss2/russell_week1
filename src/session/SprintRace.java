@@ -11,4 +11,20 @@ public class SprintRace {
     public void performPitStop(){
         System.out.println("pit in BOX BOX");
     }
+
+    public int getTotalLap() {
+        return totalLap;
+    }
+
+    public void setTotalLap(int totalLap) {
+        this.totalLap = totalLap;
+    }
+
+    public int getCurrentLap() {
+        return currentLap;
+    }
+
+    public void setCurrentLap(int currentLap) {
+        this.currentLap = currentLap;
+    }
 }

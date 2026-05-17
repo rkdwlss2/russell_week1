@@ -7,4 +7,16 @@ public class Circuit {
     public void setCircuitName(String name){
         circuitName = name;
     }
+
+    public String getCircuitName() {
+        return circuitName;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
 }

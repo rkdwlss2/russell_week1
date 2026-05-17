@@ -6,9 +6,10 @@ public class Entry {
     private boolean retired;
     private int pitstopCount;
 
+
     public int performPitstop(){
-        point++;
-        return point;
+        setPoint(getPoint() + 1);
+        return getPoint();
     }
 
     public void setPoint(int point){
@@ -16,7 +17,34 @@ public class Entry {
     }
 
     public void retire(boolean status){
-        retired=status;
+        setRetired(status);
     }
 
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    public int getPoint() {
+        return point;
+    }
+
+    public boolean isRetired() {
+        return retired;
+    }
+
+    public void setRetired(boolean retired) {
+        this.retired = retired;
+    }
+
+    public int getPitstopCount() {
+        return pitstopCount;
+    }
+
+    public void setPitstopCount(int pitstopCount) {
+        this.pitstopCount = pitstopCount;
+    }
 }

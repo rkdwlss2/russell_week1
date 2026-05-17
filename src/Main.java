@@ -1,3 +1,4 @@
+import grandFrix.GrandFrix;
 import vehicle.F1Car;
 
 //TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
@@ -7,8 +8,14 @@ void main() throws IOException {
   // IntelliJ IDEA이(가) 수정을 제안하는 것을 확인할 수 있습니다.
     ArrayList<F1Car> raceList = new ArrayList<>();
     // 1. 레이스 시작
-    System.out.println("F1 드라이버 수 입력하세요 : ");
     Scanner sc = new Scanner(System.in);
+    GrandFrix grandFrix = new GrandFrix();
+    System.out.println("F1 그랑프리 입력하세요 : ");
+    grandFrix.setName(sc.nextLine());
+    System.out.println(grandFrix.getName()+"그랑프리에 오신걸 환영합니다");
+
+    System.out.println("F1 드라이버 수 입력하세요 : ");
+
     int driverNum = sc.nextInt();
 
     for (int i = 0 ; i<driverNum;i++){

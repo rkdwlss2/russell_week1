@@ -5,10 +5,14 @@ import java.util.Scanner;
 
 public class Vehicle {
      public String name;
-     int points;
+     private int price;
+     private int weight;
+     private int width;
+
      Vehicle() throws IOException {
           setVehicle();
      }
+
      public void Print(){
          System.out.println("F1팀 이름 : "+name);
      }
@@ -31,4 +35,27 @@ public class Vehicle {
      }
 
 
+     public int getPrice() {
+          return price;
+     }
+
+     public void setPrice(int price) {
+          this.price = price;
+     }
+
+     public int getWeight() {
+          return weight;
+     }
+
+     public void setWeight(int weight) {
+          this.weight = weight;
+     }
+
+     public int getWidth() {
+          return width;
+     }
+
+     public void setWidth(int width) {
+          this.width = width;
+     }
 }

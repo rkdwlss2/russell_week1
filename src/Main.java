@@ -6,7 +6,7 @@ void main() throws IOException {
   //TIP 캐럿을 강조 표시된 텍스트에 놓고 <shortcut actionId="ShowIntentionActions"/>을(를) 누르면
   // IntelliJ IDEA이(가) 수정을 제안하는 것을 확인할 수 있습니다.
     ArrayList<F1Car> raceList = new ArrayList<>();
-
+    // 1. 레이스 시작
     System.out.println("F1 드라이버 수 입력하세요 : ");
     Scanner sc = new Scanner(System.in);
     int driverNum = sc.nextInt();
@@ -15,19 +15,24 @@ void main() throws IOException {
         raceList.add(new F1Car());
     }
 
+    // 2. 순위 선정
     int[] points = {25, 18, 15, 12, 10, 8, 6, 4, 2, 1};
     Collections.sort(raceList,(a,b)->Double.compare(a.lapTime,b.lapTime));
+
     System.out.println("===========한국 F1 그랑프리 레이싱 결과===================");
 
-    // 한팀의 2명의 드라이버가 포디움일때
+    // 3. 포디움 선정
+    // 한팀의 2명의 드라이버가 포디움(순위권)일때
     if (raceList.get(0).name.equals(raceList.get(1).name)||raceList.get(0).name.equals(raceList.get(2).name)){
         System.out.println(raceList.get(0).name+" 더블포디움 ");
     }else if (raceList.get(1).name.equals(raceList.get(2).name)){
         System.out.println(raceList.get(1).name+" 더블포디움 ");
     }
 
+    // 4. 순위권 출력
     for (int i=0;i<raceList.size();i++){
-        if (i<3) { // 순위권 내에 들었을때
+        // 순위권 내에 들었을때
+        if (i<3) {
             System.out.println(" ==== 포디움 ==== ");
         }
         if (i<10){

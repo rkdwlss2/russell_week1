@@ -1,6 +1,6 @@
 # KTB4_Russell_Week1
 <img width="1428" height="1176" alt="image" src="https://github.com/user-attachments/assets/616e2414-3760-4b81-a2bf-4cdfefb83cae" />
-
+F1을 주제로 간단한 CLI프로그램을 제작하였습니다. 프로그램은 간단하게 그랑프리 정보, 드라이버, 차량 정보를 입력받아 화면에 출력하게 하였습니다. 레이스 기록에 따라 소팅하여 순위와 점수, 순위권을 화면에 출력하게 하였습니다.
 1. 레이스 시작
     
     레이스 시작되면 장소를 입력으로 받고, 입력받은 레이스가 시작됩니다.

@@ -1,11 +1,13 @@
+package vehicle;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class F1Car extends Car {
     String driverName;
-    double lapTime; // 퀄리파이 레이싱 기록
+    public double lapTime; // 퀄리파이 레이싱 기록
 
-    F1Car() throws IOException {
+    public F1Car() throws IOException {
         super();
         setF1car();
     }

@@ -1,8 +1,10 @@
+package vehicle;
+
 import java.io.IOException;
 import java.util.Scanner;
 
 public class Vehicle {
-     String name;
+     public String name;
      int points;
      Vehicle() throws IOException {
           setVehicle();

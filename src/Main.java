@@ -57,14 +57,19 @@ public void week_1(){
 
 public void week_2(){
     try {
-        F1Car f1Car = new F1Car();
-        Thread thread = new Thread(f1Car);
+        F1Car mclaren = new F1Car();
+        mclaren.recruitF1Driver("noris");
+        Thread thread = new Thread(mclaren);
         thread.start();
-        f1Car.enterPit();
+        for (int i =0;i<10;i++){
+            Thread.sleep(1000);
+            System.out.println("현재 pit 상태 : "+mclaren.isInPit());
+        }
+
+        mclaren.finishRace();
 
 
-
-    } catch (IOException e) {
+    } catch (IOException | InterruptedException e) {
         throw new RuntimeException(e);
     }
 

@@ -10,7 +10,7 @@ public class Vehicle {
      private int width;
 
      Vehicle() throws IOException {
-          setVehicle();
+          //setVehicle();
      }
 
      public void Print(){

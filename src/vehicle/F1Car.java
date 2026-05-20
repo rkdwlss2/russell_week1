@@ -9,12 +9,13 @@ public class F1Car extends Car implements Runnable{
     private String drs;
     private String upgradeDate;
     private final AtomicBoolean isInfit = new AtomicBoolean(false);
+    private volatile boolean finished = false;
     private String driverName;
     private double lapTime; // 퀄리파이 레이싱 기록
 
     public F1Car() throws IOException {
         super();
-        setF1car();
+        //setF1car();
     }
 
     public void Print(){
@@ -36,14 +37,14 @@ public class F1Car extends Car implements Runnable{
     public void enterPit(){
         boolean success = isInfit.compareAndSet(false,true);
         if (success){
-            System.out.println(driverName+" pit in");
+            System.out.println(Thread.currentThread().getName()+driverName+" pit in");
         }
     }
 
     public void exitPit(){
         boolean success = isInfit.compareAndSet(true,false);
         if (success){
-            System.out.println(driverName+" pit out");
+            System.out.println(Thread.currentThread().getName()+driverName+" pit out");
         }
     }
 
@@ -93,8 +94,39 @@ public class F1Car extends Car implements Runnable{
         this.lapTime = lapTime;
     }
 
+    public void recruitF1Driver(String driverName){
+        setDriverName(driverName);
+    }
+
+    public boolean isInPit(){
+        return isInfit.get();
+    }
+    public void finishRace(){
+        finished = true;
+    }
+
     @Override
     public void run() {
-        drive();
+        while (!finished){
+            drive();
+            if (super.getSpeed()>=50&&!isInfit.get()){
+                enterPit();
+            }
+            if (isInfit.get()){
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }
+                exitPit();
+            }
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+
+        }
+        System.out.println("레이스종료");
     }
 }

@@ -30,5 +30,8 @@ public class Car extends Vehicle {
         Scanner sc = new Scanner(System.in);
         engineManufacturer = sc.next();
     }
+    public void drive(){
+        System.out.println("자동차 주행중입니다");
+    }
 
 }

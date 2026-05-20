@@ -2,12 +2,13 @@ package vehicle;
 
 import java.io.IOException;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
 
-public class F1Car extends Car {
+public class F1Car extends Car implements Runnable{
     private String brandName;
     private String drs;
     private String upgradeDate;
-    private Boolean isInfit;
+    private final AtomicBoolean isInfit = new AtomicBoolean(false);
     private String driverName;
     private double lapTime; // 퀄리파이 레이싱 기록
 
@@ -33,11 +34,17 @@ public class F1Car extends Car {
     }
 
     public void enterPit(){
-        setInfit(true);
+        boolean success = isInfit.compareAndSet(false,true);
+        if (success){
+            System.out.println(driverName+" pit in");
+        }
     }
 
     public void exitPit(){
-        setInfit(false);
+        boolean success = isInfit.compareAndSet(true,false);
+        if (success){
+            System.out.println(driverName+" pit out");
+        }
     }
 
     public void verifyWeight(){
@@ -68,13 +75,7 @@ public class F1Car extends Car {
         this.upgradeDate = upgradeDate;
     }
 
-    public Boolean getInfit() {
-        return isInfit;
-    }
 
-    public void setInfit(Boolean infit) {
-        isInfit = infit;
-    }
 
     public String getDriverName() {
         return driverName;
@@ -90,5 +91,10 @@ public class F1Car extends Car {
 
     public void setLapTime(double lapTime) {
         this.lapTime = lapTime;
+    }
+
+    @Override
+    public void run() {
+        drive();
     }
 }

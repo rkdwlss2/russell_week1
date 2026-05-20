@@ -3,9 +3,7 @@ import vehicle.F1Car;
 
 //TIP 코드를 <b>실행</b>하려면 <shortcut actionId="Run"/>을(를) 누르거나
 // 에디터 여백에 있는 <icon src="AllIcons.Actions.Execute"/> 아이콘을 클릭하세요.
-void main() throws IOException {
-  //TIP 캐럿을 강조 표시된 텍스트에 놓고 <shortcut actionId="ShowIntentionActions"/>을(를) 누르면
-  // IntelliJ IDEA이(가) 수정을 제안하는 것을 확인할 수 있습니다.
+public void week_1(){
     ArrayList<F1Car> raceList = new ArrayList<>();
     // 1. 레이스 시작
     Scanner sc = new Scanner(System.in);
@@ -19,7 +17,11 @@ void main() throws IOException {
     int driverNum = sc.nextInt();
 
     for (int i = 0 ; i<driverNum;i++){
-        raceList.add(new F1Car());
+        try {
+            raceList.add(new F1Car());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     // 2. 순위 선정
@@ -51,5 +53,25 @@ void main() throws IOException {
         raceList.get(i).Print();
     }
 
+}
 
+public void week_2(){
+    try {
+        F1Car f1Car = new F1Car();
+        Thread thread = new Thread(f1Car);
+        thread.start();
+        f1Car.enterPit();
+
+
+
+    } catch (IOException e) {
+        throw new RuntimeException(e);
+    }
+
+}
+
+void main() throws IOException {
+
+  //  week_1();
+    week_2();
 }

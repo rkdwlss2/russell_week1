@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Vehicle {
-     public String name;
+     private String name;
      private int price;
      private int weight;
      private int width;
@@ -14,7 +14,7 @@ public class Vehicle {
      }
 
      public void Print(){
-         System.out.println("F1팀 이름 : "+name);
+         System.out.println("F1팀 이름 : "+ getName());
      }
 
      public void setVehicle() throws IOException {
@@ -29,7 +29,7 @@ public class Vehicle {
 
           System.out.println(" 팀 이름 입력하세요: "+teamStr);
           Scanner sc = new Scanner(System.in);
-          name = sc.nextLine();
+          setName(sc.nextLine());
 
 
      }
@@ -57,5 +57,13 @@ public class Vehicle {
 
      public void setWidth(int width) {
           this.width = width;
+     }
+
+     public String getName() {
+          return name;
+     }
+
+     public void setName(String name) {
+          this.name = name;
      }
 }

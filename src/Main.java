@@ -32,10 +32,10 @@ public void week_1(){
 
     // 3. 포디움 선정
     // 한팀의 2명의 드라이버가 포디움(순위권)일때
-    if (raceList.get(0).name.equals(raceList.get(1).name) || raceList.get(0).name.equals(raceList.get(2).name)) {
-        System.out.println(raceList.get(0).name + " 더블포디움 ");
-    } else if (raceList.get(1).name.equals(raceList.get(2).name)) {
-        System.out.println(raceList.get(1).name + " 더블포디움 ");
+    if (raceList.get(0).getName().equals(raceList.get(1).getName()) || raceList.get(0).getName().equals(raceList.get(2).getName())) {
+        System.out.println(raceList.get(0).getName() + " 더블포디움 ");
+    } else if (raceList.get(1).getName().equals(raceList.get(2).getName())) {
+        System.out.println(raceList.get(1).getName() + " 더블포디움 ");
     }
 
     // 4. 순위권 출력

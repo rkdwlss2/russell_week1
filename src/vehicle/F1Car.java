@@ -23,7 +23,7 @@ public class F1Car extends Car implements Runnable{
     public void Print(){
         super.Print();
         System.out.println("드라이버이름 : "+ getDriverName());
-        System.out.println("엔진제조사 : "+engineManufacturer);
+        System.out.println("엔진제조사 : "+super.getEngineManufacturer());
         System.out.println("laptime : "+ getLapTime());
     }
 

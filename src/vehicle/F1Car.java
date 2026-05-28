@@ -3,12 +3,14 @@ package vehicle;
 import java.io.IOException;
 import java.util.Scanner;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class F1Car extends Car implements Runnable{
     private String brandName;
     private String drs;
     private String upgradeDate;
     private final AtomicBoolean isInfit = new AtomicBoolean(false);
+    private final AtomicInteger pitInSuccessCount = new AtomicInteger(0);
     private volatile boolean finished = false;
     private String driverName;
     private double lapTime; // 퀄리파이 레이싱 기록
@@ -37,6 +39,7 @@ public class F1Car extends Car implements Runnable{
     public void enterPit(){
         boolean success = isInfit.compareAndSet(false,true);
         if (success){
+            getPitInSuccessCount().incrementAndGet();
             System.out.println(Thread.currentThread().getName()+driverName+" pit in");
         }
     }
@@ -128,5 +131,9 @@ public class F1Car extends Car implements Runnable{
 
         }
         System.out.println("레이스종료");
+    }
+
+    public AtomicInteger getPitInSuccessCount() {
+        return pitInSuccessCount;
     }
 }
